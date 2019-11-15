@@ -17,7 +17,6 @@
 
 package com.example.android.devbyteviewer.database
 
-import android.provider.MediaStore
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.android.devbyteviewer.domain.Video
@@ -32,7 +31,7 @@ data class DatabaseVideo constructor(
         val thumbnail: String
 )
 
-fun List<DatabaseVideo>.asDomainMode(): List<Video> {
+fun List<DatabaseVideo>.asDomainModel(): List<Video> {
     return map {
         Video(
                 url = it.url,
