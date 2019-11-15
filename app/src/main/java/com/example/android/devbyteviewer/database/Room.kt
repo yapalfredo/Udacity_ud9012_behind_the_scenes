@@ -26,10 +26,10 @@ import com.example.android.devbyteviewer.domain.Video
 @Dao
 interface VideoDao {
     @Query("select * from databasevideo")
-    fun getVideos(): LiveData<DatabaseVideo>
+    fun getVideos(): LiveData<List<DatabaseVideo>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(vararg: DatabaseVideo)
+    fun insertAll(vararg videos: DatabaseVideo)
 }
 
 @Database(entities = [DatabaseVideo::class], version = 1)
